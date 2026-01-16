@@ -33,8 +33,6 @@ function upload_foto($File){
 		$message .= "Sorry, your file was not uploaded. ";
 		$hasil['status'] = false; 
 	}else{
-				//if everything is ok, try to upload file
-				//Create new filename:
         $NewName = date("YmdHis"). '.' . $FileExt;
         $UploadDestination = "img/". $NewName; 
 

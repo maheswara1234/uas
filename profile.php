@@ -58,7 +58,7 @@ if (isset($_POST['simpan'])) {
     $stmt->close();
 }
 
-// 2. LOGIKA AMBIL DATA USER (Setelah update, supaya data terbaru yang muncul)
+// 2. LOGIKA AMBIL DATA USER
 $username = $_SESSION['username'];
 $sql = "SELECT * FROM user WHERE username = '$username'";
 $hasil = $conn->query($sql);

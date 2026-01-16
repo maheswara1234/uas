@@ -26,7 +26,7 @@ if (!empty($user_data['foto']) && file_exists("img/" . $user_data['foto'])) {
     <div class="col-md-4 text-center">
         <div class="card border-0">
             <div class="card-body">
-                <h4 class="text-muted">Selamat Datang,</h4>
+                <h4 class="text-muted fw-lighter">Selamat Datang,</h4>
                 <h4 class="text-danger fw-bold"><?= $user_data['username'] ?></h4>
                 <img src="<?= $foto_profil ?>" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;" alt="Foto Profil">
             </div>

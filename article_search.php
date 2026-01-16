@@ -4,7 +4,7 @@ include "koneksi.php";
 // Ambil keyword dari AJAX
 $keyword = $_POST['keyword'];
 
-// --- LOGIKA PENCARIAN ---
+// Logika Pencarian
 $sql = "SELECT * FROM article 
         WHERE judul LIKE ? OR isi LIKE ? OR tanggal LIKE ? OR username LIKE ?
         ORDER BY tanggal DESC";
