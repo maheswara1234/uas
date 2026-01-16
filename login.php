@@ -29,7 +29,7 @@ if (isset($_SESSION['username'])) {
     />
     <link rel="icon" href="img/logo.png" />
   </head>
-  <body class="bg-danger-subtle">
+  <body class="bg-primary-subtle">
     <div class="container mt-5 pt-5">
         <div class="row">
             <div class="col-12 col-sm-8 col-md-6 m-auto">
@@ -56,7 +56,7 @@ if (isset($_SESSION['username'])) {
                   placeholder="Password"
                 />
                 <div class="text-center my-3 d-grid">
-                  <button class="btn btn-danger rounded-4">Login</button>
+                  <button class="btn btn-primary rounded-4">Login</button>
                 </div>
                 <p id="errorMsg" class="text-danger"></p>
               </form>
