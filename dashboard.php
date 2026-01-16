@@ -34,8 +34,7 @@ if (!empty($user_data['foto']) && file_exists("img/" . $user_data['foto'])) {
     </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-4 g-4 justify-content-center pt-4">
-    
+<div class="row row-cols-1 row-cols-md-4 g-4 justify-content-center pt-4">    
     <div class="col">
         <a href="admin.php?page=article" class="text-decoration-none">
             <div class="card border border-danger mb-3 shadow" style="max-width: 18rem;">
