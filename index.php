@@ -146,39 +146,28 @@ include 'koneksi.php';
     <section id="gallery" class="text-center p-5 bg-primary-subtle">
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">Gallery</h1>
-        <div id="carouselExample" class="carousel slide">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/food6.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/food7.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/food8.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/food2.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/food1.jpg" class="d-block w-100" alt="..." />
-            </div>
+            <?php
+            $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+            $hasil = $conn->query($sql);
+
+            $active = true;
+            while ($row = $hasil->fetch_assoc()) {
+            ?>
+              <div class="carousel-item <?php echo ($active) ? 'active' : ''; ?>">
+                <img src="img/<?= $row['gambar'] ?>" class="d-block w-100" alt="Gambar Gallery">
+              </div>
+            <?php
+              $active = false;
+            }
+            ?>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
@@ -298,15 +287,15 @@ include 'koneksi.php';
         navbar.classList.remove("bg-body-tertiary", "navbar-light");
         navbar.classList.add("bg-dark", "navbar-dark");
 
-        // Hero & Gallery: UBAH DARI BIRU MUDA JADI ABU-ABU (bg-secondary)
-        // bg-secondary adalah kelas warna abu-abu di Bootstrap
+        // Hero & Gallery: UBAH JADI ABU-ABU (bg-secondary)
+        // Hapus warna biru (primary-subtle)
         hero.classList.remove("bg-primary-subtle", "text-dark");
         hero.classList.add("bg-secondary", "text-white");
 
-        gallery.classList.remove("bg-primary-subtle");
+        gallery.classList.remove("bg-primary-subtle", "text-dark");
         gallery.classList.add("bg-secondary", "text-white");
 
-        // Card: Ubah jadi gelap dengan border abu-abu agar terlihat rapi
+        // Card: Ubah jadi gelap
         for (let i = 0; i < cards.length; i++) {
           cards[i].classList.add("bg-secondary", "text-white");
         }
@@ -328,18 +317,16 @@ include 'koneksi.php';
         navbar.classList.remove("bg-dark", "navbar-dark");
         navbar.classList.add("bg-body-tertiary", "navbar-light");
 
-        // Hero & Gallery: BALIK DARI ABU-ABU JADI BIRU MUDA LAGI
+        // Hero & Gallery: BALIK JADI BIRU (bg-primary-subtle)
         hero.classList.remove("bg-secondary", "text-white");
         hero.classList.add("bg-primary-subtle", "text-dark");
 
         gallery.classList.remove("bg-secondary", "text-white");
-        gallery.classList.add("bg-primary-subtle");
+        gallery.classList.add("bg-primary-subtle", "text-dark");
 
         // Card: Hapus mode gelap
         for (let i = 0; i < cards.length; i++) {
-          cards[i].classList.remove(
-            "bg-secondary",
-            "text-white");
+          cards[i].classList.remove("bg-secondary", "text-white");
         }
 
         // Footer Icon: Balik hitam
