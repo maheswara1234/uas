@@ -24,7 +24,7 @@ if (!empty($user_data['foto']) && file_exists("img/" . $user_data['foto'])) {
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-4 text-center">
-        <div class="card border-0 shadow-sm">
+        <div class="card border-0">
             <div class="card-body">
                 <h4 class="text-muted">Selamat Datang,</h4>
                 <h4 class="text-danger fw-bold"><?= $user_data['username'] ?></h4>
